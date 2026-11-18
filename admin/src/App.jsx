@@ -13,7 +13,7 @@ import PaymentsPage from './pages/PaymentsPage'
 import './App.css'
 import './components/Admin.css'
 
-const API = import.meta.env.VITE_API_URL
+const API = import.meta.env.HOST
 const ROUTES = {
   '/': 'overview',
   '/overview': 'overview',
