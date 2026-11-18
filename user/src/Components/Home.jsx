@@ -9,7 +9,7 @@ import PaymentsPage from './pages/PaymentsPage'
 import RidesPage from './pages/RidesPage'
 import VehiclesPage from './pages/VehiclesPage'
 
-const API = import.meta.env.VITE_API_URL
+const API = import.meta.env.HOST
 
 function storedSession() {
   try {

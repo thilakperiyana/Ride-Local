@@ -29,11 +29,13 @@ Requirements: Node.js and MongoDB.
    npm.cmd install
    ```
 
-3. Optionally configure the Driver app in `driver/.env`:
+3. Configure the frontend API base in each app's `.env` file:
 
    ```env
    HOST=http://localhost:5000/api
    ```
+
+   The User app also has a production API base in `user/.env.production` for its Vercel build.
 
 4. Start the API, customer app, admin app, and Driver app in separate terminals:
 
@@ -57,7 +59,7 @@ Requirements: Node.js and MongoDB.
    npm.cmd run dev
    ```
 
-5. Create an administrator from the `server` directory with `npm.cmd run create-admin`, or seed `admin@gmail.com` with `npm.cmd run seed-admin`. The seed command prompts for a password and does not change an existing admin account's password. Then sign in to the admin app.
+5. Create an administrator from the `server` directory with `npm.cmd run create-admin`, or seed `admin@gmail.com` with `npm.cmd run seed-admin`. The seed command prompts for a password and resets the password when that admin account already exists. Then sign in to the admin app.
 
 6. To seed Mangaluru service locations, ride categories, and sample vehicles for the first approved driver, run this from `server`:
 
