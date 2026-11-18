@@ -16,7 +16,7 @@ export default function VehicleForm({ value, setValue, categories, locations, ve
     <form className="form-grid" onSubmit={onSubmit}>
       <label>Vehicle model<input required maxLength="80" value={value.vehicleModel} onChange={(event) => update('vehicleModel', event.target.value)} placeholder="e.g. Swift Dzire" /></label>
       <label>Vehicle number<input required maxLength="20" value={value.vehicleNumber} onChange={(event) => update('vehicleNumber', event.target.value.toUpperCase())} placeholder="KA 01 AB 1234" /></label>
-      <label>Category<select required value={value.category} onChange={(event) => update('category', event.target.value)}><option value="">Select category</option>{categories.map((item) => <option key={item._id} value={item.name}>{item.name}</option>)}</select></label>
+      <label>Category<select required value={value.category} onChange={(event) => update('category', event.target.value)}><option value="">{categories.length ? 'Select category' : 'No categories available — ask admin to add one'}</option>{categories.map((item) => <option key={item._id} value={item.name}>{item.name}</option>)}</select></label>
       <label>Service location<select required value={value.serviceLocation} onChange={(event) => update('serviceLocation', event.target.value)}><option value="">Select location</option>{locations.map((item) => <option key={item._id} value={item.name}>{item.name}</option>)}</select></label>
       <label>Colour<input required maxLength="40" value={value.colour} onChange={(event) => update('colour', event.target.value)} placeholder="White" /></label>
       <label>Seats<input type="number" min="1" max="20" required value={value.seats} onChange={(event) => update('seats', Number(event.target.value))} /></label>
