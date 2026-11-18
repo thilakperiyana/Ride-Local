@@ -55,7 +55,11 @@ async function main() {
     const existing = await User.findOne({ email });
     if (existing) {
       if (existing.role !== "admin") throw new Error(`The email ${email} is already registered as a non-admin account.`);
-      console.log(`Admin account ${email} already exists. Its password was not changed.`);
+      existing.name = process.env.ADMIN_NAME || existing.name || "Ride Local Admin";
+      existing.phone = process.env.ADMIN_PHONE || existing.phone || "0000000000";
+      existing.password = await bcrypt.hash(password, 12);
+      await existing.save();
+      console.log(`Admin account ${email} updated with the supplied password.`);
       return;
     }
 
