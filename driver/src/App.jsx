@@ -10,7 +10,7 @@ import VehiclesPage from './pages/VehiclesPage'
 import DriverLayout from './components/DriverLayout'
 import Notice from './components/Notice'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const API = import.meta.env.HOST
 const SESSION_KEY = 'rideLocalDriverSession'
 const emptyRegistration = () => ({
   name: '', email: '', phone: '', password: '', address: '', licenseNumber: '', licenseDocument: null,

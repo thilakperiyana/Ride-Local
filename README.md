@@ -32,7 +32,7 @@ Requirements: Node.js and MongoDB.
 3. Optionally configure the Driver app in `driver/.env`:
 
    ```env
-   VITE_API_URL=http://localhost:5000/api
+   HOST=http://localhost:5000/api
    ```
 
 4. Start the API, customer app, admin app, and Driver app in separate terminals:

@@ -95,7 +95,7 @@ export default function VehiclesPage({ locations, categories, vehicles, pickup, 
         const symbol = ['🚕', '🚘', '🚙', '🛺'][categoryIndex % 4]
         const style = ['standard', 'comfort', 'suv', 'auto'][categoryIndex % 4]
         return <article className="vehicle-card" key={vehicle._id}>
-          <div className={`vehicle-art vehicle-${style}`}>{vehicle.hasImage ? <img className="vehicle-photo" src={`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/catalog/vehicles/${vehicle._id}/image?v=${encodeURIComponent(vehicle.updatedAt || '')}`} alt={`${vehicle.vehicleModel || vehicle.vehicleName || category.name}`} /> : <span className="vehicle-symbol">{symbol}</span>}<span className="capacity">{vehicle.seats || 4} seats</span>{vehicle.isAvailable === false && <span className="vehicle-availability-label">Not available</span>}<span className="vehicle-orbit" /></div>
+          <div className={`vehicle-art vehicle-${style}`}>{vehicle.hasImage ? <img className="vehicle-photo" src={`${import.meta.env.VITE_API_URL}/catalog/vehicles/${vehicle._id}/image?v=${encodeURIComponent(vehicle.updatedAt || '')}`} alt={`${vehicle.vehicleModel || vehicle.vehicleName || category.name}`} /> : <span className="vehicle-symbol">{symbol}</span>}<span className="capacity">{vehicle.seats || 4} seats</span>{vehicle.isAvailable === false && <span className="vehicle-availability-label">Not available</span>}<span className="vehicle-orbit" /></div>
           <div className="vehicle-info"><span className="vehicle-type">{category.name.toUpperCase()}</span><h3>{vehicle.vehicleModel || vehicle.vehicleName || category.name}</h3>
             <p>{vehicle.vehicleModel || category.description || 'A local ride for your neighborhood trip.'}</p>
             <small className="fleet-line">{vehicle.vehicleNumber} · {vehicle.driverId?.name || 'Local driver'} · {vehicle.serviceLocation}</small>
@@ -108,7 +108,7 @@ export default function VehiclesPage({ locations, categories, vehicles, pickup, 
     {selectedVehicle && (() => {
       const vehicle = currentSelectedVehicle
       const category = categories.find((item) => item.name === vehicle.category)
-      const imageUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/catalog/vehicles/${vehicle._id}/image?v=${encodeURIComponent(vehicle.updatedAt || '')}`
+      const imageUrl = `${import.meta.env.VITE_API_URL}/catalog/vehicles/${vehicle._id}/image?v=${encodeURIComponent(vehicle.updatedAt || '')}`
       return <div className="vehicle-detail-backdrop" onMouseDown={(event) => {
         if (event.target === event.currentTarget) setSelectedVehicle(null)
       }}>
