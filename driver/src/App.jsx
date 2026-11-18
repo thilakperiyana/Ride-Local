@@ -10,7 +10,10 @@ import VehiclesPage from './pages/VehiclesPage'
 import DriverLayout from './components/DriverLayout'
 import Notice from './components/Notice'
 
-const API = import.meta.env.HOST
+const configuredHost = (import.meta.env.HOST || '').trim().replace(/\/+$/, '')
+const API = configuredHost
+  ? (configuredHost.endsWith('/api') ? configuredHost : `${configuredHost}/api`)
+  : ''
 const SESSION_KEY = 'rideLocalDriverSession'
 const emptyRegistration = () => ({
   name: '', email: '', phone: '', password: '', address: '', licenseNumber: '', licenseDocument: null,

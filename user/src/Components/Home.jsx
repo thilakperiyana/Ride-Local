@@ -8,8 +8,7 @@ import HomePage from './pages/HomePage'
 import PaymentsPage from './pages/PaymentsPage'
 import RidesPage from './pages/RidesPage'
 import VehiclesPage from './pages/VehiclesPage'
-
-const API = import.meta.env.HOST
+import { API } from './api'
 
 function storedSession() {
   try {

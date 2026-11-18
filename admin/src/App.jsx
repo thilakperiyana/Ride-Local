@@ -13,7 +13,10 @@ import PaymentsPage from './pages/PaymentsPage'
 import './App.css'
 import './components/Admin.css'
 
-const API = import.meta.env.HOST
+const configuredHost = (import.meta.env.HOST || '').trim().replace(/\/+$/, '')
+const API = configuredHost
+  ? (configuredHost.endsWith('/api') ? configuredHost : `${configuredHost}/api`)
+  : ''
 const ROUTES = {
   '/': 'overview',
   '/overview': 'overview',
